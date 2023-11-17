@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row d-flex">
+    <div class="box col-5 d-flex">
+      <label for="word">Word</label>
+      <input id="word" type="text" [(ngModel)]="word.word">
+    </div>
+    <div class="arrow col-2 d-flex">-></div>
+    <div class="box col-5 d-flex">
+      <label for="translation">Translation</label>
+      <input id="translation" type="text" [(ngModel)]="word.translate">
+    </div>
+    <button class="my-4 btn-primary btn" (click)="onAddWord()">Save</button>
+  </div>
+</div>
+
