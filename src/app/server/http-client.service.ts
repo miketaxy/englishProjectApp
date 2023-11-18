@@ -9,7 +9,7 @@ export class HttpClientService {
   constructor(protected http: HttpClient) {
   }
   getWords(){
-    return this.http.get('http://localhost:8080/api/getAllWords');
+    return this.http.get<Word[]>('http://localhost:8080/api/getAllWords');
   }
   sendWord(word: Word){
     return this.http.post('http://localhost:8080/api/sendWord', word);
@@ -21,6 +21,8 @@ export class HttpClientService {
     return this.http.post('http://localhost:8080/api/sendFile', formData);
   }
 
-
+  deleteWord(word: Word){
+    return this.http.delete(`http://localhost:8080/api/deleteWord?word=${word.word}&translate=${word.translate}`);
+  }
 
 }

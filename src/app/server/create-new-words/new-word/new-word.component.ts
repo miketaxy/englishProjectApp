@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {Word} from "../word.model";
-import {HttpClientService} from "../http-client.service";
+import {Word} from "../../word.model";
+import {HttpClientService} from "../../http-client.service";
 
 @Component({
   selector: 'app-new-word',

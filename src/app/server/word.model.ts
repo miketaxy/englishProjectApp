@@ -1,3 +1,6 @@
+
 export class Word{
-  constructor(public word: string, public translate: string){}
+  id!: number;
+  constructor(public word: string, public translate: string){
+  }
 }
