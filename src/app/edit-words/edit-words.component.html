@@ -1,0 +1,21 @@
+<div class="container">
+  <table class="table table-bordered my-4">
+    <thead>
+    <tr>
+      <th class="col-3" scope="col">Слово</th>
+      <th class="col-3" scope="col">Переклад</th>
+      <th class="col-3" scope="col">Дії</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let word of words">
+      <td><input type="text" *ngIf="isEdit" [ngModel]="word.word"><span *ngIf="!isEdit">{{word.word}}</span></td>
+      <td>{{word.translate}}</td>
+      <td>
+        <button class="btn btn-sm btn-danger" (click)="deleteWord(word)">Видалити</button>
+        <button class="btn btn-sm btn-primary mx-2" (click)="editWord(word)">Редагувати</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
