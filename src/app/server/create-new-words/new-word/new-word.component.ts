@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Word} from "../../word.model";
+import {Word} from "../../../word.model";
 import {HttpClientService} from "../../http-client.service";
 
 @Component({

@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {Word} from "./word.model";
+import {Word} from "../word.model";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,10 @@ export class HttpClientService {
 
   deleteWord(word: Word){
     return this.http.delete(`http://localhost:8080/api/deleteWord?word=${word.word}&translate=${word.translate}`);
+  }
+  editWord(word: Word){
+    console.log('Word: ' + word.word);
+    return this.http.put('http://localhost:8080/api/editWord', word);
   }
 
 }

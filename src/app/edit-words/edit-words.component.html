@@ -9,11 +9,17 @@
     </thead>
     <tbody>
     <tr *ngFor="let word of words">
-      <td><input type="text" *ngIf="isEdit" [ngModel]="word.word"><span *ngIf="!isEdit">{{word.word}}</span></td>
-      <td>{{word.translate}}</td>
+      <td>
+        <span *ngIf="!word.isEditing">{{word.word}}</span>
+        <input type="text" *ngIf="word.isEditing" [(ngModel)]="word.word">
+      </td>
+      <td>   <span *ngIf="!word.isEditing">{{word.translate}}</span>
+        <input type="text" *ngIf="word.isEditing" [(ngModel)]="word.translate">
+      </td>
       <td>
         <button class="btn btn-sm btn-danger" (click)="deleteWord(word)">Видалити</button>
-        <button class="btn btn-sm btn-primary mx-2" (click)="editWord(word)">Редагувати</button>
+        <button class="btn btn-sm btn-primary mx-2" *ngIf="!word.isEditing" (click)="editWord(word)">Редагувати</button>
+        <button class="btn btn-sm btn-primary mx-2" *ngIf="word.isEditing" (click)="saveWord(word)">Зберегти</button>
       </td>
     </tr>
     </tbody>

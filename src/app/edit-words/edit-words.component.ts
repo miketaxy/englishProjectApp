@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClientService} from "../server/http-client.service";
-import {Word} from "../server/word.model";
+import {Word} from "../word.model";
 
 @Component({
   selector: 'app-edit-words',
@@ -21,7 +21,13 @@ export class EditWordsComponent implements OnInit {
   };
 
   editWord(word: Word) {
-    this.isEdit = !this.isEdit;
+    word.isEditing = !word.isEditing;
+  }
+
+  saveWord(word: Word) {
+    word.isEditing = !word.isEditing;
+    return this.httpService.editWord(word).subscribe((res) =>
+      console.log(res));
   }
 
   ngOnInit() {
