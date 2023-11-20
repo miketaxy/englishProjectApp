@@ -12,6 +12,7 @@ import {FormsModule} from "@angular/forms";
 import { CreateNewWordsComponent } from './server/create-new-words/create-new-words.component';
 import { EditWordsComponent } from './edit-words/edit-words.component';
 import {RouterModule} from "@angular/router";
+import { InputWordsComponent } from './game/input-words/input-words.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,15 @@ import {RouterModule} from "@angular/router";
     GameComponent,
     NewWordFileComponent,
     CreateNewWordsComponent,
-    EditWordsComponent
+    EditWordsComponent,
+    InputWordsComponent
   ],
   imports: [
     RouterModule.forRoot([
       {path: 'create', component: ServerComponent},
       {path: 'edit', component: EditWordsComponent},
       {path: 'game', component: GameComponent},
+      {path: '', redirectTo: 'create', pathMatch: 'full'}
     ]),
     BrowserModule,
     HttpClientModule,

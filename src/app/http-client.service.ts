@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {Word} from "../word.model";
+import {Word} from "./word.model";
 
 @Injectable({
   providedIn: 'root'

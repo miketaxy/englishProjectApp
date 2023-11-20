@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {HttpClientService} from "../../http-client.service";
+import {HttpClientService} from "../../../http-client.service";
 
 @Component({
   selector: 'app-new-word-file',
