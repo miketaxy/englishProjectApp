@@ -15,8 +15,8 @@ export class HttpClientTranslatorService {
 
   getTranslate(data: SendWord) {
     const formData = new FormData()
-    formData.append('source_lang', data.source_language);
-    formData.append('target_lang', data.target_language);
+    formData.append('source_language', data.source_language);
+    formData.append('target_language', data.target_language);
     formData.append('text', data.text);
     this.headers = this.headers.set('x-rapidapi-key', environment.apiKey);
     return this.http.post(`${this.url}/translate`, formData, {headers: this.headers});

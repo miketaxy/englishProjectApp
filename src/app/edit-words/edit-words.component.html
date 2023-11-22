@@ -13,7 +13,7 @@
         <span *ngIf="!word.isEditing">{{word.word}}</span>
         <input type="text" *ngIf="word.isEditing" [(ngModel)]="word.word">
       </td>
-      <td>   <span *ngIf="!word.isEditing">{{word.translate}}</span>
+      <td><span *ngIf="!word.isEditing">{{word.translate}}</span>
         <input type="text" *ngIf="word.isEditing" [(ngModel)]="word.translate">
       </td>
       <td>

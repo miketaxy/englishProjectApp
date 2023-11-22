@@ -9,7 +9,6 @@ import {Word} from "../word.model";
 })
 export class EditWordsComponent implements OnInit {
   words: Word[] = [];
-  isEdit: boolean = false;
 
   constructor(protected httpService: HttpClientService) {
   }

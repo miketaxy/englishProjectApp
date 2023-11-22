@@ -7,18 +7,11 @@ import {HttpClientService} from "../http-client.service";
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit{
-  words: Word[] = []
+export class GameComponent {
 
 
-  constructor(protected httpService: HttpClientService) {
+  constructor() {
 
   }
-  ngOnInit(): void {
-    this.httpService.getWords().subscribe((res)=>{
-      this.words = res;
-    });
-  }
-
 
 }

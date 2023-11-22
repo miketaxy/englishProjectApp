@@ -13,6 +13,9 @@ import { CreateNewWordsComponent } from './server/create-new-words/create-new-wo
 import { EditWordsComponent } from './edit-words/edit-words.component';
 import {RouterModule} from "@angular/router";
 import { InputWordsComponent } from './game/input-words/input-words.component';
+import { CorrectIncorrectDirective } from './game/input-words/correct-incorrect.directive';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,17 @@ import { InputWordsComponent } from './game/input-words/input-words.component';
     NewWordFileComponent,
     CreateNewWordsComponent,
     EditWordsComponent,
-    InputWordsComponent
+    InputWordsComponent,
+    CorrectIncorrectDirective,
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     RouterModule.forRoot([
       {path: 'create', component: ServerComponent},
       {path: 'edit', component: EditWordsComponent},
       {path: 'game', component: GameComponent},
+      {path: 'login', component: LoginPageComponent},
       {path: '', redirectTo: 'create', pathMatch: 'full'}
     ]),
     BrowserModule,
