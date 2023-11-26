@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {Word} from "../../../word.model";
-import {HttpClientService} from "../../../http-client.service";
-import {HttpClientTranslatorService} from "../../../http-client-translator.service";
-import {SendWord} from "../../../send-word.model";
-import {TranslationResponse} from "../../../translation-response.model";
+import {Word} from "../../../model/word.model";
+import {HttpClientService} from "../../../api/http-client.service";
+import {HttpClientTranslatorService} from "../../../api/http-client-translator.service";
+import {SendWord} from "../../../model/send-word.model";
+import {TranslationResponse} from "../../../model/translation-response.model";
 
 @Component({
   selector: 'app-new-word',

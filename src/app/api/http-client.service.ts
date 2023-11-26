@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {Word} from "./word.model";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {Word} from "../model/word.model";
 import {catchError} from "rxjs";
 
 @Injectable({
@@ -9,8 +9,8 @@ import {catchError} from "rxjs";
 export class HttpClientService {
   constructor(protected http: HttpClient) {
   }
-  getWords(){
-    return this.http.get<Word[]>('http://localhost:8080/api/getAllWords');
+  getWords(headers: HttpHeaders){
+    return this.http.get<Word[]>('http://localhost:8080/api/getAllWords', {headers} );
   }
   sendWord(word: Word){
     return this.http.post('http://localhost:8080/api/sendWord', word);

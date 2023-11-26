@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClientService} from "../http-client.service";
-import {Word} from "../word.model";
+import {HttpClientService} from "../api/http-client.service";
+import {Word} from "../model/word.model";
+import {HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-edit-words',
@@ -9,6 +10,7 @@ import {Word} from "../word.model";
 })
 export class EditWordsComponent implements OnInit {
   words: Word[] = [];
+  headers: HttpHeaders = new HttpHeaders();
 
   constructor(protected httpService: HttpClientService) {
   }
@@ -28,13 +30,28 @@ export class EditWordsComponent implements OnInit {
     return this.httpService.editWord(word).subscribe((res) =>
       console.log(res));
   }
+  getAuth(){
+    console.log(this.headers)
+  }
 
-  ngOnInit() {
-    this.httpService.getWords().subscribe(
+  getWords(){
+    this.httpService.getWords(this.headers).subscribe(
       res => {
         this.words = res;
       }, error => {
         console.log(error);
+      }
+    );
+  }
+
+  ngOnInit() {
+    let token: string | null = localStorage.getItem('token');
+    if(token !==null) {
+      this.headers = this.headers.set('Authorization', `Bearer ${token}`);
+    }
+    this.httpService.getWords(this.headers).subscribe(
+      res => {
+        this.words = res;
       }
     );
   }

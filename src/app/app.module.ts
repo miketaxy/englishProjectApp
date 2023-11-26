@@ -38,6 +38,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
       {path: 'edit', component: EditWordsComponent},
       {path: 'game', component: GameComponent},
       {path: 'login', component: LoginPageComponent},
+      {path: 'register', component: RegisterPageComponent},
       {path: '', redirectTo: 'create', pathMatch: 'full'}
     ]),
     BrowserModule,
