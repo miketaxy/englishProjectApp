@@ -37,6 +37,7 @@ export class EditWordsComponent implements OnInit {
   getWords(){
     this.httpService.getWords(this.headers).subscribe(
       res => {
+        console.log("AGAIN!!!!!!")
         this.words = res;
       }, error => {
         console.log(error);
