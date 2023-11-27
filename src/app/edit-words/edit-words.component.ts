@@ -10,7 +10,6 @@ import {HttpHeaders} from "@angular/common/http";
 })
 export class EditWordsComponent implements OnInit {
   words: Word[] = [];
-  headers: HttpHeaders = new HttpHeaders();
 
   constructor(protected httpService: HttpClientService) {
   }
@@ -30,14 +29,10 @@ export class EditWordsComponent implements OnInit {
     return this.httpService.editWord(word).subscribe((res) =>
       console.log(res));
   }
-  getAuth(){
-    console.log(this.headers)
-  }
 
   getWords(){
-    this.httpService.getWords(this.headers).subscribe(
+    this.httpService.getWords().subscribe(
       res => {
-        console.log("AGAIN!!!!!!")
         this.words = res;
       }, error => {
         console.log(error);
@@ -46,11 +41,7 @@ export class EditWordsComponent implements OnInit {
   }
 
   ngOnInit() {
-    let token: string | null = localStorage.getItem('token');
-    if(token !==null) {
-      this.headers = this.headers.set('Authorization', `Bearer ${token}`);
-    }
-    this.httpService.getWords(this.headers).subscribe(
+    this.httpService.getWords().subscribe(
       res => {
         this.words = res;
       }

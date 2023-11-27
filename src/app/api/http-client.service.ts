@@ -7,41 +7,43 @@ import {catchError} from "rxjs";
   providedIn: 'root'
 })
 export class HttpClientService {
+  headers: HttpHeaders = new HttpHeaders();
   constructor(protected http: HttpClient) {
+    this.headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'));
   }
-  getWords(headers: HttpHeaders){
-    return this.http.get<Word[]>('http://localhost:8080/api/getAllWords', {headers} );
+  getWords(){
+    return this.http.get<Word[]>('http://localhost:8080/api/getAllWords', {headers: this.headers} );
   }
   sendWord(word: Word){
-    return this.http.post('http://localhost:8080/api/sendWord', word);
+    return this.http.post('http://localhost:8080/api/sendWord', word, {headers: this.headers});
   }
 
   sendWordFile(file: File){
     const formData: FormData = new FormData();
     formData.append('file', file);
-    return this.http.post('http://localhost:8080/api/sendFile', formData);
+    return this.http.post('http://localhost:8080/api/sendFile', formData, {headers: this.headers});
   }
 
   deleteWord(word: Word){
-    return this.http.delete(`http://localhost:8080/api/deleteWord?word=${word.word}&translate=${word.translate}`);
+    return this.http.delete(`http://localhost:8080/api/deleteWord?word=${word.word}&translate=${word.translate}`, {headers: this.headers});
   }
   editWord(word: Word){
     console.log('Word: ' + word.word);
-    return this.http.put('http://localhost:8080/api/editWord', word);
+    return this.http.put('http://localhost:8080/api/editWord', word, {headers: this.headers});
   }
 
   getRandomWord(){
-    return this.http.get<Word>('http://localhost:8080/api/game').pipe(
+    return this.http.get<Word>('http://localhost:8080/api/game', {headers: this.headers}).pipe(
       catchError((error) => {
         console.error('Error occurred:', error);
-        throw error; // Пробросить ошибку, чтобы обработать её в других местах
+        throw error;
       })
     );
   }
 
   sendTranslate(word: Word, translate: string){
     return this.http.post<boolean>('http://localhost:8080/api/game', word
-      , {params: new HttpParams().set('translate', translate)});
+      , {params: new HttpParams().set('translate', translate), headers: this.headers});
   }
 
 }

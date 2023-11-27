@@ -12,7 +12,6 @@ export class HttpClientAuthService{
   }
 
   login(user:User){
-    console.log(user)
     return this.http.post<AuthAnswerModel>('http://localhost:8080/auth/login', user);
   }
 }
