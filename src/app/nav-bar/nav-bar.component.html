@@ -3,7 +3,8 @@
     <div class="col-6">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a routerLink="create"><img src="../../assets/logo.png" alt="M" width="45" height="45" class="d-inline-block align-top"></a>
+          <a routerLink="create"><img src="../../assets/logo.png" alt="M" width="45" height="45"
+                                      class="d-inline-block align-top"></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="edit">Edit words</a>
@@ -19,9 +20,11 @@
     <div class="col-6">
       <ul class="navbar-nav mx-4 flex-row-reverse">
         <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link" href="/login" *ngIf="isUserLogged === 'Login'">Login</a>
+          <a class="nav-link" href="#" (click)="logout()" *ngIf="isUserLogged !== 'Login'">{{isUserLogged}}</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+

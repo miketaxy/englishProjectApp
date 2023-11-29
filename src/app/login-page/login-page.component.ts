@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {User} from "../model/user.model";
 import {HttpClientAuthService} from "../api/http-client-auth.service";
 import {HttpHeaders} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {HttpClientUserService} from "../api/http-client-user.service";
 
 @Component({
   selector: 'app-login-page',
@@ -9,15 +11,20 @@ import {HttpHeaders} from "@angular/common/http";
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  user: User = new User('', '');
+  user: User = new User( '', '');
   headers: HttpHeaders = new HttpHeaders();
 
-  constructor(protected httpAuthService: HttpClientAuthService) {
+  constructor(protected httpAuthService: HttpClientAuthService, private router: Router, protected httpUser: HttpClientUserService) {
   }
 
   onSubmit(): void {
     this.httpAuthService.login(this.user).subscribe((res) => {
       localStorage.setItem('token', res.token);
+      this.router.navigate(['/']).then(()=>window.location.reload())
     });
+
+  }
+  check(){
+    console.log(this.user);
   }
 }

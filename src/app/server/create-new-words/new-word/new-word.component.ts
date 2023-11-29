@@ -20,10 +20,8 @@ export class NewWordComponent {
   }
   onTranslate() {
     this.sendWord.text = this.notTranslatedWord;
-    console.log(this.sendWord + " THIS IS SEND WORD")
     this.httpServiceTranslator.getTranslate(this.sendWord).subscribe((res: any)=>{
       this.word.translate = res.data.translatedText;
-      console.log(res);
     })
   }
   isAutomaticTranslationChange() {
@@ -31,21 +29,13 @@ export class NewWordComponent {
     if (this.isAutomaticTranslation) {
       this.temp = this.word.translate;
       this.word.translate = '';
-      console.log(this.temp);
     }
     else{
       this.word.translate = this.temp;
-      console.log(this.temp);
     }
   }
   onAddWord() {
     this.word.word = this.notTranslatedWord;
-      this.httpService.sendWord(this.word).subscribe(
-        res => {
-          console.log(res);
-        }, error => {
-          console.log(error);
-        }
-      );
+    this.httpService.sendWord(this.word).subscribe();
   }
 }

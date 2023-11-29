@@ -16,8 +16,7 @@ export class EditWordsComponent implements OnInit {
 
   deleteWord(word: Word) {
     this.words = this.words.filter(w => w.id !== word.id)
-    return this.httpService.deleteWord(word).subscribe((res) =>
-      console.log(res));
+    return this.httpService.deleteWord(word).subscribe();
   };
 
   editWord(word: Word) {
@@ -26,18 +25,7 @@ export class EditWordsComponent implements OnInit {
 
   saveWord(word: Word) {
     word.isEditing = !word.isEditing;
-    return this.httpService.editWord(word).subscribe((res) =>
-      console.log(res));
-  }
-
-  getWords(){
-    this.httpService.getWords().subscribe(
-      res => {
-        this.words = res;
-      }, error => {
-        console.log(error);
-      }
-    );
+    return this.httpService.editWord(word).subscribe();
   }
 
   ngOnInit() {

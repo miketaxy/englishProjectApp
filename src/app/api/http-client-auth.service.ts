@@ -10,7 +10,9 @@ import {AuthAnswerModel} from "../model/auth-answer.model";
 export class HttpClientAuthService{
   constructor(protected http: HttpClient) {
   }
-
+  register(user:User){
+    return this.http.post<AuthAnswerModel>('http://localhost:8080/auth/register', user);
+  }
   login(user:User){
     return this.http.post<AuthAnswerModel>('http://localhost:8080/auth/login', user);
   }

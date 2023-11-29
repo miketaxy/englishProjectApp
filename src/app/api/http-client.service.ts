@@ -28,7 +28,6 @@ export class HttpClientService {
     return this.http.delete(`http://localhost:8080/api/deleteWord?word=${word.word}&translate=${word.translate}`, {headers: this.headers});
   }
   editWord(word: Word){
-    console.log('Word: ' + word.word);
     return this.http.put('http://localhost:8080/api/editWord', word, {headers: this.headers});
   }
 
@@ -45,5 +44,7 @@ export class HttpClientService {
     return this.http.post<boolean>('http://localhost:8080/api/game', word
       , {params: new HttpParams().set('translate', translate), headers: this.headers});
   }
-
+  getUsername(){
+    return this.http.get<string>('http://localhost:8080/auth/getUsername', {headers: this.headers, responseType: 'text' as 'json'});
+  }
 }
