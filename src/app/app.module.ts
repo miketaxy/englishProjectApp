@@ -16,7 +16,6 @@ import { InputWordsComponent } from './game/input-words/input-words.component';
 import { CorrectIncorrectDirective } from './game/input-words/correct-incorrect.directive';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
-import { CollectionComponent } from './edit-words/collection/collection.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,6 @@ import { CollectionComponent } from './edit-words/collection/collection.componen
     CorrectIncorrectDirective,
     LoginPageComponent,
     RegisterPageComponent,
-    CollectionComponent
   ],
   imports: [
     RouterModule.forRoot([

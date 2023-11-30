@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClientWordService} from "../settings/api/http-client-word.service";
 import {Word} from "../settings/model/word/word.model";
-import {HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-edit-words',

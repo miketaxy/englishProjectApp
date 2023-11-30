@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Word} from "../../settings/model/word/word.model";
 import {HttpClientWordService} from "../../settings/api/http-client-word.service";
-import {HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-input-words',
@@ -24,7 +23,6 @@ export class InputWordsComponent implements OnInit {
 
   sendTranslate(): void {
     this.http.sendTranslate(this.word, this.translate).subscribe((res) => {
-      console.log(res)
       this.isCorrect = res;
       setTimeout(() => {
         if (res) {
