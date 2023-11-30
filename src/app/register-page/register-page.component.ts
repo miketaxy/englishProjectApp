@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {User} from "../model/user.model";
+import {User} from "../settings/model/auth/user.model";
 import {HttpHeaders} from "@angular/common/http";
-import {HttpClientAuthService} from "../api/http-client-auth.service";
+import {HttpClientAuthService} from "../settings/api/http-client-auth.service";
 import {provideRouter, Router} from "@angular/router";
 
 @Component({

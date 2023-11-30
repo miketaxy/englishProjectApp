@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {User} from "../model/user.model";
-import {HttpClientAuthService} from "../api/http-client-auth.service";
+import {User} from "../settings/model/auth/user.model";
+import {HttpClientAuthService} from "../settings/api/http-client-auth.service";
 import {HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {HttpClientUserService} from "../api/http-client-user.service";
+import {HttpClientUserService} from "../settings/api/http-client-user.service";
 
 @Component({
   selector: 'app-login-page',

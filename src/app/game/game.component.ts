@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Word} from "../model/word.model";
-import {HttpClientService} from "../api/http-client.service";
+import {Word} from "../settings/model/word/word.model";
+import {HttpClientWordService} from "../settings/api/http-client-word.service";
 
 @Component({
   selector: 'app-game',

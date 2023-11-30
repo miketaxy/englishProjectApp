@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {Word} from "../../../model/word.model";
-import {HttpClientService} from "../../../api/http-client.service";
-import {HttpClientTranslatorService} from "../../../api/http-client-translator.service";
-import {SendWord} from "../../../model/send-word.model";
-import {TranslationResponse} from "../../../model/translation-response.model";
+import {Word} from "../../../settings/model/word/word.model";
+import {HttpClientWordService} from "../../../settings/api/http-client-word.service";
+import {HttpClientTranslatorService} from "../../../settings/api/http-client-translator.service";
+import {SendWord} from "../../../settings/model/translate-api/send-word.model";
+import {TranslationResponse} from "../../../settings/model/translate-api/translation-response.model";
 
 @Component({
   selector: 'app-new-word',
@@ -16,7 +16,7 @@ export class NewWordComponent {
   isAutomaticTranslation = false;
   temp: string = '';
   sendWord: SendWord = new SendWord('auto', 'ru', '');
-  constructor(protected httpService: HttpClientService, protected httpServiceTranslator: HttpClientTranslatorService) {
+  constructor(protected httpService: HttpClientWordService, protected httpServiceTranslator: HttpClientTranslatorService) {
   }
   onTranslate() {
     this.sendWord.text = this.notTranslatedWord;

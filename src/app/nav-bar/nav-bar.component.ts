@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClientService} from "../api/http-client.service";
+import {HttpClientWordService} from "../settings/api/http-client-word.service";
+import {HttpClientUserService} from "../settings/api/http-client-user.service";
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,7 +11,7 @@ export class NavBarComponent implements OnInit {
   isUserLogged: string = "Login";
 
 
-  constructor(protected http: HttpClientService) {
+  constructor(protected httpUser: HttpClientUserService) {
   }
   logout(){
     localStorage.removeItem('token');
@@ -19,7 +20,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('token') !== null) {
-      this.http.getUsername().subscribe((res) => {
+      this.httpUser.getUsername().subscribe((res) => {
         this.isUserLogged = res;
       }, error => {
         console.log(error)

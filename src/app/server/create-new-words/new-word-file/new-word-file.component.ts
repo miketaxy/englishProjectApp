@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {HttpClientService} from "../../../api/http-client.service";
+import {HttpClientWordService} from "../../../settings/api/http-client-word.service";
 
 @Component({
   selector: 'app-new-word-file',
@@ -9,7 +9,7 @@ import {HttpClientService} from "../../../api/http-client.service";
 export class NewWordFileComponent {
   selectedFile: File | null = null;
 
-  constructor(protected httpService: HttpClientService) {
+  constructor(protected httpService: HttpClientWordService) {
   }
 
   onFileChanged(event: any) {

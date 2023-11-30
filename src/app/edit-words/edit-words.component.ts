@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClientService} from "../api/http-client.service";
-import {Word} from "../model/word.model";
+import {HttpClientWordService} from "../settings/api/http-client-word.service";
+import {Word} from "../settings/model/word/word.model";
 import {HttpHeaders} from "@angular/common/http";
 
 @Component({
@@ -11,7 +11,7 @@ import {HttpHeaders} from "@angular/common/http";
 export class EditWordsComponent implements OnInit {
   words: Word[] = [];
 
-  constructor(protected httpService: HttpClientService) {
+  constructor(protected httpService: HttpClientWordService) {
   }
 
   deleteWord(word: Word) {

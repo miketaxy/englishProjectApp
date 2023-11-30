@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Word} from "../../model/word.model";
-import {HttpClientService} from "../../api/http-client.service";
+import {Word} from "../../settings/model/word/word.model";
+import {HttpClientWordService} from "../../settings/api/http-client-word.service";
 import {HttpHeaders} from "@angular/common/http";
 
 @Component({
@@ -19,7 +19,7 @@ export class InputWordsComponent implements OnInit {
     });
   }
 
-  constructor(protected http: HttpClientService) {
+  constructor(protected http: HttpClientWordService) {
   }
 
   sendTranslate(): void {

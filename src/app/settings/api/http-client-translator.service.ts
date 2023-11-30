@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {SendWord} from "../model/send-word.model";
-import {environment} from "../environment";
+import {SendWord} from "../model/translate-api/send-word.model";
+import {environment} from "../../environment";
 
 @Injectable({
   providedIn: 'root'

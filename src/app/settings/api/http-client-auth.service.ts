@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {User} from "../model/user.model";
-import {AuthAnswerModel} from "../model/auth-answer.model";
+import {User} from "../model/auth/user.model";
+import {AuthAnswerModel} from "../model/auth/auth-answer.model";
 
 
 @Injectable({
