@@ -1,4 +1,4 @@
 export class AuthAnswerModel{
-    constructor(public token: string) {
+    constructor(public token: string, public message: string) {
     }
 }

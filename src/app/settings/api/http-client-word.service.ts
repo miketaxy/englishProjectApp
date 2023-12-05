@@ -26,7 +26,7 @@ export class HttpClientWordService {
   }
 //Delete and Edit Words-----------------------------------------------------------
   deleteWord(word: Word){
-    return this.http.delete(`http://localhost:8080/api/deleteWord?word=${word.word}&translate=${word.translate}`, {headers: this.headers});
+    return this.http.delete(`http://localhost:8080/api/deleteWord/`+ word.id, {headers: this.headers});
   }
   editWord(word: Word){
     return this.http.put('http://localhost:8080/api/editWord', word, {headers: this.headers});

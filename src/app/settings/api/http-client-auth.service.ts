@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {User} from "../model/auth/user.model";
 import {AuthAnswerModel} from "../model/auth/auth-answer.model";
+
 
 
 @Injectable({
@@ -10,10 +10,10 @@ import {AuthAnswerModel} from "../model/auth/auth-answer.model";
 export class HttpClientAuthService{
   constructor(protected http: HttpClient) {
   }
-  register(user:User){
-    return this.http.post<AuthAnswerModel>('http://localhost:8080/auth/register', user);
+  register(form: any){
+    return this.http.post<AuthAnswerModel>('http://localhost:8080/auth/register', form);
   }
-  login(user:User){
-    return this.http.post<AuthAnswerModel>('http://localhost:8080/auth/login', user);
+  login(form: any){
+    return this.http.post<AuthAnswerModel>('http://localhost:8080/auth/login', form);
   }
 }

@@ -13,4 +13,7 @@ export class HttpClientUserService {
   getUsername(){
     return this.http.get<string>('http://localhost:8080/auth/getUsername', {headers: this.headers, responseType: 'text' as 'json'});
   }
+  isUserNameTaken(username: string){
+    return this.http.get<boolean>('http://localhost:8080/auth/isUsernameTaken/' + username);
+  }
 }
