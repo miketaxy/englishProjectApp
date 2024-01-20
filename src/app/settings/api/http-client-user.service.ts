@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {AuthAnswerModel} from "../model/auth/auth-answer.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,8 @@ export class HttpClientUserService {
   }
   isUserNameTaken(username: string){
     return this.http.get<boolean>('http://localhost:8080/auth/isUsernameTaken/' + username);
+  }
+  checkIfTokenCorrect(){
+    return this.http.get<boolean>('http://localhost:8080/auth/isTokenValid', {headers: this.headers});
   }
 }

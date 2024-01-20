@@ -11,4 +11,5 @@ import {Router} from "@angular/router";
 export class AppComponent{
   constructor(private authSystemService: AuthGuardService, protected router: Router) {
   }
+
 }
